@@ -5,42 +5,48 @@ class Greet:
     @staticmethod
     def say_hello_with_one_name(name):
         if name.isupper():
-            return "HELLO, %s!" % name
+            return f"HELLO, {name}!"
         else:
-            return "Hello, %s!" % name
+            return f"Hello, {name}!"
+
+    @staticmethod
+    def split_names_with_commas(names):
+        names_list = []
+        for i in names:
+            spliced_name = i.split(", ")
+            for j in spliced_name:
+                names_list.append(j)
+        return names_list
 
     @staticmethod
     def say_hello_with_multiple_names_lower_case(names):
         greeting = "Hello"
         for name in names:
             if name is names[-1]:
-                greeting += (" and %s." % name)
+                greeting += f" and {name}."
             else:
-                greeting += ", %s" % name
+                greeting += f", {name}"
         return greeting
 
     def say_hello_with_multiple_names(self, name):
-        greeting = ""
         upper_case_names = []
         lower_case_names = []
-        for i in self.name:
-            if i.isupper():
-                upper_case_names.append(i)
+        self.name = self.split_names_with_commas(self.name)
+        for name in self.name:
+            if name.isupper():
+                upper_case_names.append(name)
             else:
-                lower_case_names.append(i)
+                lower_case_names.append(name)
         if len(lower_case_names) <= 1:
             greeting = self.say_hello_with_one_name(lower_case_names[0])
         else:
             greeting = self.say_hello_with_multiple_names_lower_case(lower_case_names)
         if len(upper_case_names) == 0:
             return greeting
-        elif len(upper_case_names) <= 1:
-            greeting += " AND "
-            greeting += self.say_hello_with_one_name(upper_case_names[0])
+        elif len(upper_case_names) == 1:
+            greeting += f" AND {self.say_hello_with_one_name(upper_case_names[0])}"
         else:
-            greeting += " AND "
-            greeting += (self.say_hello_with_multiple_names_lower_case(upper_case_names)).upper()
-
+            greeting += f" AND {(self.say_hello_with_multiple_names_lower_case(upper_case_names)).upper()}"
         return greeting
 
     def greet(self, name):

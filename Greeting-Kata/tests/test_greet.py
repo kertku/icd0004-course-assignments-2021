@@ -40,3 +40,7 @@ class TestClass:
         mixed_of_normal_and_shouted_names_two_upper_case = Greet(["Amy", "BRIAN", "Charlotte", "TIIT"])
         assert mixed_of_normal_and_shouted_names_two_upper_case.greet(
             self) == "Hello, Amy and Charlotte. AND HELLO, BRIAN AND TIIT."
+
+    def test_entries_contains_commas(self):
+        entries_contains_commas = Greet(["Bob", "Charlie, Dianne"])
+        assert entries_contains_commas.greet(self) == "Hello, Bob, Charlie and Dianne."
