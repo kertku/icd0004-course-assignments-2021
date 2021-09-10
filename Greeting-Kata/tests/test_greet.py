@@ -31,3 +31,12 @@ class TestClass:
     def test_arbitrary_numbers_of_names(self):
         arbitrary_numbers_of_names = Greet(["Amy", "Brian", "Charlotte"])
         assert arbitrary_numbers_of_names.greet(self) == "Hello, Amy, Brian and Charlotte."
+
+    def test_mixed_of_normal_and_shouted_names(self):
+        mixed_of_normal_and_shouted_names = Greet(["Amy", "BRIAN", "Charlotte"])
+        assert mixed_of_normal_and_shouted_names.greet(self) == "Hello, Amy and Charlotte. AND HELLO, BRIAN!"
+
+    def test_mixed_of_normal_and_shouted_names_with_two_upper_case_names(self):
+        mixed_of_normal_and_shouted_names_two_upper_case = Greet(["Amy", "BRIAN", "Charlotte", "TIIT"])
+        assert mixed_of_normal_and_shouted_names_two_upper_case.greet(
+            self) == "Hello, Amy and Charlotte. AND HELLO, BRIAN AND TIIT."
