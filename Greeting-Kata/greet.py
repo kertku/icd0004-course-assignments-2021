@@ -11,12 +11,12 @@ class Greet:
             else:
                 return "Hello, %s!" % self.name
         if isinstance(self.name, list):
-            greeting = "Hello, "
+            greeting = "Hello"
             for name in self.name:
                 if name is self.name[-1]:
                     greeting += (" and %s." % name)
                 else:
-                    greeting += name
+                    greeting += ", %s" % name
             return greeting
         else:
             return "Wrong input"

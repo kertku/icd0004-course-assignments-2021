@@ -27,3 +27,7 @@ class TestClass:
     def test_two_names_from_list(self):
         greet_two_names_from_list = Greet(["Jill", "Jane"])
         assert greet_two_names_from_list.greet(self) == "Hello, Jill and Jane."
+
+    def test_arbitrary_numbers_of_names(self):
+        arbitrary_numbers_of_names = Greet(["Amy", "Brian", "Charlotte"])
+        assert arbitrary_numbers_of_names.greet(self) == "Hello, Amy, Brian and Charlotte."
