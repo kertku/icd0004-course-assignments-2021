@@ -23,3 +23,7 @@ class TestClass:
     def test_alternating_case(self):
         greet_name_alternating = Greet("TaNNu")
         assert greet_name_alternating.greet(self) == "Hello, TaNNu!"
+
+    def test_two_names_from_list(self):
+        greet_two_names_from_list = Greet(["Jill", "Jane"])
+        assert greet_two_names_from_list.greet(self) == "Hello, Jill and Jane."
