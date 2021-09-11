@@ -44,3 +44,9 @@ class TestClass:
     def test_entries_contains_commas(self):
         entries_contains_commas = Greet(["Bob", "Charlie, Dianne"])
         assert entries_contains_commas.greet(self) == "Hello, Bob, Charlie and Dianne."
+
+    def test_input_to_escape_intentional_commas(self):
+        test_input_to_escape_intentional_commas = Greet(["Bob", "\"Charlie, Dianne\""])
+        assert test_input_to_escape_intentional_commas.greet(self) == "Hello, Bob, Charlie and Dianne."
+
+

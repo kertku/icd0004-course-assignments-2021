@@ -4,16 +4,17 @@ class Greet:
 
     @staticmethod
     def say_hello_with_one_name(name):
+        greeting = f"Hello, {name}!"
         if name.isupper():
-            return f"HELLO, {name}!"
+            return greeting.upper()
         else:
-            return f"Hello, {name}!"
+            return greeting
 
     @staticmethod
     def split_names_with_commas(names):
         names_list = []
         for i in names:
-            spliced_name = i.split(", ")
+            spliced_name = i.strip(""""\"""").split(", ")
             for j in spliced_name:
                 names_list.append(j)
         return names_list
@@ -37,7 +38,9 @@ class Greet:
                 upper_case_names.append(name)
             else:
                 lower_case_names.append(name)
-        if len(lower_case_names) <= 1:
+        if len(lower_case_names) == 0:
+            return self.say_hello_with_one_name(upper_case_names[0])
+        elif len(lower_case_names) <= 1:
             greeting = self.say_hello_with_one_name(lower_case_names[0])
         else:
             greeting = self.say_hello_with_multiple_names_lower_case(lower_case_names)
