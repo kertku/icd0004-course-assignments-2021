@@ -49,4 +49,10 @@ class TestClass:
         test_input_to_escape_intentional_commas = Greet(["Bob", "\"Charlie, Dianne\""])
         assert test_input_to_escape_intentional_commas.greet(self) == "Hello, Bob, Charlie and Dianne."
 
+    def test_array_input_with_one_name_lower_case(self):
+        array_input_with_one_name_lower_case = Greet(["Bob"])
+        assert array_input_with_one_name_lower_case.greet(self) == "Hello, Bob!", "Should be Hello, Bob!"
 
+    def test_array_input_with_one_name_upper_case(self):
+        array_input_with_one_name_upper_case = Greet(["DIANE"])
+        assert array_input_with_one_name_upper_case.greet(self) == "HELLO, DIANE!"
