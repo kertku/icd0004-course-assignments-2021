@@ -1,16 +1,24 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import greet
+import sys
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def array_input_form_cl():
+    arguments_list_length = len(sys.argv[1])
+    return sys.argv[1][1:arguments_list_length - 1].split(',')
 
 
-# Press the green button in the gutter to run the script.
+def single_string_input_from_cl():
+    return sys.argv[1]
+
+
+def take_input_from_cl():
+    if sys.argv[1][0] == "[":
+        input_arguments = array_input_form_cl()
+    else:
+        input_arguments = single_string_input_from_cl()
+    person = greet.Greet(input_arguments)
+    print(person.greet())
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    take_input_from_cl()

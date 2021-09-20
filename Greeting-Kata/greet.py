@@ -4,9 +4,9 @@ class Greet:
 
     @staticmethod
     def say_hello_with_one_name(name):
-        greeting = f"Hello, {name}!"
+        greeting = f"Hello, {name}."
         if name.isupper():
-            return greeting.upper()
+            return f"HELLO, {name}!"
         else:
             return greeting
 
@@ -29,7 +29,7 @@ class Greet:
                 greeting += f", {name}"
         return greeting
 
-    def say_hello_with_multiple_names(self, name):
+    def say_hello_with_multiple_names(self):
         upper_case_names = []
         lower_case_names = []
         self.name = self.split_names_with_commas(self.name)
@@ -52,12 +52,12 @@ class Greet:
             greeting += f" AND {(self.say_hello_with_multiple_names_lower_case(upper_case_names)).upper()}"
         return greeting
 
-    def greet(self, name):
+    def greet(self):
         if self.name is None or self.name == "":
             return "Hello my friend!"
         if isinstance(self.name, str):
             return self.say_hello_with_one_name(self.name)
         if isinstance(self.name, list):
-            return self.say_hello_with_multiple_names(self.name)
+            return self.say_hello_with_multiple_names()
         else:
             return "Wrong input"
