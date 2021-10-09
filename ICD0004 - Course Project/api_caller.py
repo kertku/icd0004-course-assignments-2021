@@ -12,6 +12,6 @@ class ApiCalls:
         api_call_parameters = {'q': self.location, 'appid': self.api_key, 'units': self.units}
         try:
             api_request = requests.get(self.uri, api_call_parameters)
-            return api_request.json(), api_request.status_code
+            return api_request.json()
         except requests.ConnectionError as error:
             return error
