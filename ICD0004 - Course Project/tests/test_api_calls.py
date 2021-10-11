@@ -16,3 +16,7 @@ class TestClass:
     def test_incorrect_name_api_call_returns_status_code_404(self):
         api_call_returns_status_code_404 = ApiCalls('NotCorrect', TestClass.BASE_URL, TestClass.APPID)
         assert api_call_returns_status_code_404.get_data_from_api()['cod'] == str(404)
+
+    def test_should_return_city_name_when_name_is_given(self):
+        api_call_returns_city_name = ApiCalls('Keila', TestClass.BASE_URL, TestClass.APPID)
+        assert api_call_returns_city_name.get_data_from_api()['name'] == str("Keila")
