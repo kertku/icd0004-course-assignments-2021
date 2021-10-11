@@ -20,3 +20,7 @@ class TestClass:
     def test_should_return_city_name_when_name_is_given(self):
         api_call_returns_city_name = ApiCalls('Keila', TestClass.BASE_URL, TestClass.APPID)
         assert api_call_returns_city_name.get_data_from_api()['name'] == str("Keila")
+
+    def test_should_return_lat_and_lon_properties(self):
+        api_has_lat_lon_properties = ApiCalls('Keila', TestClass.BASE_URL, TestClass.APPID)
+        assert ('lat' and 'lon' in (api_has_lat_lon_properties.get_data_from_api()['coord'])) is True
