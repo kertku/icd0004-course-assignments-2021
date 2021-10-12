@@ -1,9 +1,19 @@
 from api_caller import ApiCalls
 from weather_report_details import *
+from weater_api import WeatherApi
+
+
+def ask_city_name():
+    return input("Please enter the city name for witch You want weather info for: ")
+
 
 if __name__ == '__main__':
-    city = input("Please enter the city name for witch You want weather info for: ")
-    api = ApiCalls(city, 'https://api.openweathermap.org/data/2.5/weather?', '84e4560ea21a19b05777ab2b8db01083')
-    weather_report_details = WeatherReportDetails()
+    city = ask_city_name()
+    weather_api = WeatherApi(city)
+    current_weather_report_from_api = weather_api.get_current_weather_data()
+    api_json_result = json.dumps(current_weather_report_from_api, indent=2)
 
-    print(type(api.get_data_from_api()))
+    weather_report_details = WeatherReportDetails()
+    weather_report_details.parse_json_result_to_weather_report_details(api_json_result)
+
+    print(weather_report_details.convert_weather_report_details_to_json())
