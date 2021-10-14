@@ -11,7 +11,7 @@ class ApiCalls:
     def get_data_from_api(self):
         api_call_parameters = {'q': self.location, 'appid': self.api_key, 'units': self.units}
         try:
-            api_request = requests.get(self.uri, api_call_parameters)
-            return api_request.json()
+            api_request_response = requests.get(self.uri, api_call_parameters)
+            return api_request_response.json()
         except requests.ConnectionError as error:
             return error

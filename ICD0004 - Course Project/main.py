@@ -1,6 +1,5 @@
-from api_caller import ApiCalls
-from weather_report_details import *
 from weater_api import WeatherApi
+from weather_report_details import *
 
 
 def ask_city_name():
