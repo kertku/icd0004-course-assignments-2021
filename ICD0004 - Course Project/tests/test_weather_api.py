@@ -1,6 +1,5 @@
-import json
 import unittest
-from weater_api import WeatherApi
+from weather_api import WeatherApi
 
 
 class MyTestCase(unittest.TestCase):

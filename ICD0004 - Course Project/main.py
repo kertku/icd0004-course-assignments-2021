@@ -1,4 +1,4 @@
-from weater_api import WeatherApi
+from weather_api import WeatherApi
 from weather_report_details import *
 
 
@@ -10,7 +10,7 @@ if __name__ == '__main__':
     city = ask_city_name()
     weather_api = WeatherApi(city)
     current_weather_report_from_api = weather_api.get_current_weather_data()
-    api_json_result = json.dumps(current_weather_report_from_api, indent=2)
+    api_json_result = weather_api.weather_data_to_Json()
 
     weather_report_details = WeatherReportDetails()
     weather_report_details.parse_json_result_to_weather_report_details(api_json_result)
