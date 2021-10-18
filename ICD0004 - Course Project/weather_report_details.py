@@ -8,6 +8,12 @@ class WeatherReportDetails:
         self.city = ""
         self.temperature_units = "Celsius"
 
+    def get_coordinates(self):
+        return self.coordinates
+
+    def get_city_name(self):
+        return self.city
+
     def parse_json_result_to_weather_report_details(self, json_input):
         try:
             json_result = json.loads(json_input)
@@ -19,3 +25,4 @@ class WeatherReportDetails:
 
     def convert_weather_report_details_to_json(self):
         return json.dumps(self.__dict__, indent=2)
+
