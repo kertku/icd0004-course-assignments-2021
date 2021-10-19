@@ -10,9 +10,8 @@ if __name__ == '__main__':
     city = ask_city_name()
     weather_api = WeatherApi(city)
     current_weather_report_from_api = weather_api.get_current_weather_data()
-    api_json_result = weather_api.weather_data_to_Json()
 
     weather_report_details = WeatherReportDetails()
-    weather_report_details.parse_json_result_to_weather_report_details(api_json_result)
+    weather_report_details.parse_json_result_to_weather_report_details(current_weather_report_from_api)
 
-    print(weather_report_details.convert_weather_report_details_to_json())
+    print(weather_report_details.convert_weather_report_details_to_string())

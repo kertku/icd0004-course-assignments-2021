@@ -4,3 +4,4 @@ class CurrentWeatherReport:
         self.temperature = temperature
         self.humidity = humidity
         self.pressure = pressure
+

@@ -16,13 +16,12 @@ class WeatherReportDetails:
 
     def parse_json_result_to_weather_report_details(self, json_input):
         try:
-            json_result = json.loads(json_input)
-            self.coordinates = f"{json_result['coord']['lat']},{json_result['coord']['lon']}"
-            self.city = json_result["name"]
+            self.coordinates = f"{json_input['coord']['lat']},{json_input['coord']['lon']}"
+            self.city = json_input["name"]
         except KeyError:
             print("Something went wrong! Invalid json format!")
             exit(1)
 
-    def convert_weather_report_details_to_json(self):
+    def convert_weather_report_details_to_string(self):
         return json.dumps(self.__dict__, indent=2)
 
