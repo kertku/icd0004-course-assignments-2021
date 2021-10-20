@@ -1,3 +1,4 @@
+from current_weather_report import CurrentWeatherReport
 from weather_api import WeatherApi
 from weather_report_details import *
 
@@ -14,4 +15,8 @@ if __name__ == '__main__':
     weather_report_details = WeatherReportDetails()
     weather_report_details.parse_json_result_to_weather_report_details(current_weather_report_from_api)
 
+    current_weather_report = CurrentWeatherReport()
+    current_weather_report.parse_json_result_to_current_weather_report(current_weather_report_from_api)
+
     print(weather_report_details.convert_weather_report_details_to_string())
+    print(current_weather_report.convert_weather_report_to_string())
