@@ -1,0 +1,11 @@
+{
+    "firstname": "Tiit",
+    "lastname": "Kapp",
+    "totalprice": 210,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2021-08-29",
+        "checkout": "2021-06-06"
+    },
+    "additionalneeds": "Miskit lisa"
+}
