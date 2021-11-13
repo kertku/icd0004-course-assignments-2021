@@ -2,7 +2,7 @@ import unittest
 import date_converter
 
 
-class MyTestCase(unittest.TestCase):
+class HelpersTestCase(unittest.TestCase):
     def test_date_converter_returns_correct_format(self):
         self.unix_timestamp = date_converter.convert_unix_dateformat_to_utc(1284101485)
         self.correct_format = "2010-09-10"

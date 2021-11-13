@@ -1,9 +1,5 @@
 import unittest
 from unittest import mock
-from unittest.mock import Mock, MagicMock, patch
-
-import self as self
-
 from weather_api import WeatherApi
 
 

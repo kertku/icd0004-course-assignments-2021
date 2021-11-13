@@ -1,6 +1,6 @@
 from current_weather_report import CurrentWeatherReport
 from weather_api import WeatherApi
-from weather_report_details import *
+from weather_report_main_details import *
 
 
 def ask_city_name():

@@ -1,10 +1,8 @@
 import json
 import unittest
 from unittest import mock
-from unittest.mock import MagicMock
-
 from weather_api import WeatherApi
-from weather_report_details import WeatherReportDetails
+from weather_report_main_details import WeatherReportDetails
 
 
 class TestWeatherReportDetailsMock(unittest.TestCase):
@@ -17,12 +15,12 @@ class TestWeatherReportDetailsMock(unittest.TestCase):
 
     def test_correct_weather_report_details_coord_response(self):
         self.weather_report_details.parse_json_result_to_weather_report_details(
-            json.dumps(self.weather_api.get_current_weather_data()))
+            self.weather_api.get_current_weather_data())
         assert self.weather_report_details.get_coordinates() == "65,35"
 
     def test_correct_weather_report_city_name_coord_response(self):
         self.weather_report_details.parse_json_result_to_weather_report_details(
-            json.dumps(self.weather_api.get_current_weather_data()))
+            self.weather_api.get_current_weather_data())
         assert self.weather_report_details.get_city_name() == "Keila"
 
     def tearDown(self):

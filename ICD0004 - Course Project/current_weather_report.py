@@ -5,11 +5,11 @@ from date_converter import convert_unix_dateformat_to_utc
 
 
 class CurrentWeatherReport:
-    def __init__(self):
-        self.date = ''
-        self.temperature = ""
-        self.humidity = ""
-        self.pressure = ""
+    def __init__(self, date="", temperature="", humidity="", pressure=""):
+        self.date = date
+        self.temperature = temperature
+        self.humidity = humidity
+        self.pressure = pressure
 
     def parse_json_result_to_current_weather_report(self, json_input):
         try:
@@ -23,4 +23,3 @@ class CurrentWeatherReport:
 
     def convert_weather_report_to_string(self):
         return json.dumps(self.__dict__, indent=2)
-
