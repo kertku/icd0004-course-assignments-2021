@@ -5,6 +5,6 @@ stages:
     image:latest
     stage:test
     script:
-      -pip3 install pipenv
-      -pipenv install
-      -python3 -m unittest discover
+      - pip3 install pipenv
+      - pipenv install
+      - python3 -m unittest discover
