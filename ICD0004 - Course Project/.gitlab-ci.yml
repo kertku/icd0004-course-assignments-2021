@@ -2,7 +2,7 @@ stages:
   - test
 
   python_tests:
-    image:python:3.9
+    image:latest
     stage:test
     script:
       -pip3 install pipenv
