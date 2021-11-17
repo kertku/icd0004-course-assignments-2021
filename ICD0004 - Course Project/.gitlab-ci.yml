@@ -2,8 +2,8 @@ stages:
   - test
 
   python_tests:
-    image:latest
-    stage:test
+    image: latest
+    stage: test
     script:
       - pip3 install pipenv
       - pipenv install
