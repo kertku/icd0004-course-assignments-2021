@@ -1,0 +1,7 @@
+test:
+  stage: test
+  image: python:3.9
+  script:
+    - pip3 install pipenv
+    - pipenv install
+    - python3 -m unittest discover
