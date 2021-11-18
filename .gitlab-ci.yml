@@ -2,7 +2,7 @@ test:
   stage: test
   image: python:3.9
   script:
-    - cd ICD0004 - Course Project
+    - cd ICD0004\ -\ Course\ Project/
     - pip3 install pipenv
     - pipenv install
     - python3 -m unittest discover
