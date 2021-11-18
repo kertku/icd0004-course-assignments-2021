@@ -5,4 +5,5 @@ test:
     - cd ICD0004\ -\ Course\ Project/
     - pip3 install pipenv
     - pipenv install
+    - pipenv shell
     - python3 -m unittest discover
