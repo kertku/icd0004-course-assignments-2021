@@ -1,6 +1,7 @@
+from apis.forecast_api import ForecastApi
+from apis.weather_api import WeatherApi
 from current_weather_report import CurrentWeatherReport
-from forecast_api import ForecastApi
-from weather_api import WeatherApi
+
 from weather_report_main_details import *
 
 
