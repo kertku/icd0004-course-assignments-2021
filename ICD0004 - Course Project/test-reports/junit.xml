@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="4" failures="0" hostname="Kullekas-XPS" name="pytest" skipped="0" tests="4" time="0.115" timestamp="2021-11-19T18:37:59.287864"><testcase classname="" name="test.test_api_calls" time="0.000"><error message="collection failure">ImportError while importing test module &apos;/home/kullekas/PycharmProjects/icd004-course-assignments-2021/ICD0004 - Course Project/test/test_api_calls.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test/test_api_calls.py:1: in &lt;module&gt;
+    from api_caller import ApiCalls
+api_caller.py:1: in &lt;module&gt;
+    import requests
+E   ImportError: No module named requests</error></testcase><testcase classname="" name="test.test_weather_api" time="0.000"><error message="collection failure">ImportError while importing test module &apos;/home/kullekas/PycharmProjects/icd004-course-assignments-2021/ICD0004 - Course Project/test/test_weather_api.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test/test_weather_api.py:2: in &lt;module&gt;
+    from weather_api import WeatherApi
+weather_api.py:3: in &lt;module&gt;
+    from api_caller import ApiCalls
+api_caller.py:1: in &lt;module&gt;
+    import requests
+E   ImportError: No module named requests</error></testcase><testcase classname="" name="test.Mocks.test_weather_api_mock" time="0.000"><error message="collection failure">ImportError while importing test module &apos;/home/kullekas/PycharmProjects/icd004-course-assignments-2021/ICD0004 - Course Project/test/Mocks/test_weather_api_mock.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test/Mocks/test_weather_api_mock.py:2: in &lt;module&gt;
+    from unittest import mock
+E   ImportError: cannot import name mock</error></testcase><testcase classname="" name="test.Mocks.test_weather_report_main_details_with_mock" time="0.000"><error message="collection failure">ImportError while importing test module &apos;/home/kullekas/PycharmProjects/icd004-course-assignments-2021/ICD0004 - Course Project/test/Mocks/test_weather_report_main_details_with_mock.py&apos;.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test/Mocks/test_weather_report_main_details_with_mock.py:3: in &lt;module&gt;
+    from unittest import mock
+E   ImportError: cannot import name mock</error></testcase></testsuite></testsuites>

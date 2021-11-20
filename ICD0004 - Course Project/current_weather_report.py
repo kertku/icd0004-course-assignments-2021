@@ -22,4 +22,4 @@ class CurrentWeatherReport:
             exit(1)
 
     def convert_weather_report_to_string(self):
-        return json.dumps(self.__dict__, indent=2)
+        return json.dumps({"currentWeatherReport": self.__dict__}, indent=2)

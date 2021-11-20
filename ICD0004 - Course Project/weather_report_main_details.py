@@ -4,8 +4,8 @@ import json
 class WeatherReportDetails:
 
     def __init__(self, coordinates="", city="", temperature_units="Celsius"):
-        self.coordinates = coordinates
         self.city = city
+        self.coordinates = coordinates
         self.temperature_units = temperature_units
 
     def get_coordinates(self):
@@ -23,4 +23,4 @@ class WeatherReportDetails:
             exit(1)
 
     def convert_weather_report_details_to_string(self):
-        return json.dumps(self.__dict__, indent=2)
+        return json.dumps({"weatherReportDetails": self.__dict__}, indent=4)

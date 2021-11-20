@@ -1,8 +1,10 @@
 import requests
 
 
-class ApiCalls:
-    def __init__(self, location, uri, api_key, units='metric'):
+class ApiCaller:
+    APPID = '84e4560ea21a19b05777ab2b8db01083'
+
+    def __init__(self, location, uri, api_key=APPID, units='metric'):
         self.location = location
         self.uri = uri
         self.api_key = api_key

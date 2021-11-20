@@ -1,21 +1,19 @@
 import json
 
-from api_caller import ApiCalls
+from api_caller import ApiCaller
 
 
-class WeatherApi:
-    APPID = '84e4560ea21a19b05777ab2b8db01083'
+class WeatherApi(ApiCaller):
     BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
-    def __init__(self, city):
-        self.city = city
+    def __init__(self, location, uri=BASE_URL):
+        super().__init__(location, uri)
 
     def get_city_name(self):
-        return self.city
+        return self.location
 
     def get_current_weather_data(self):
-        weather_data_from_api = ApiCalls(self.city, self.BASE_URL, self.APPID)
-        return weather_data_from_api.get_data_from_api()
+        return self.get_data_from_api()
 
     def weather_data_to_string(self):
         return json.dumps(self.get_current_weather_data(), indent=2)
