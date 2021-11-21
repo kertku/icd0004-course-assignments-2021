@@ -1,4 +1,5 @@
 import json
+from dataclasses import dataclass
 from domain.weather import Weather
 from helpers import date_converter
 
@@ -19,4 +20,4 @@ class CurrentWeatherReport:
             exit(1)
 
     def convert_weather_report_to_string(self):
-        return json.dumps({"currentWeatherReport": self.__dict__}, default=lambda o: o.__dict__, indent=4)
+        return json.dumps({"currentWeatherReport": self.__dict__}, default=lambda o: o.__dict__)

@@ -1,4 +1,4 @@
-from api_caller import ApiCaller
+from apis.api_caller import ApiCaller
 
 
 class TestClass:
