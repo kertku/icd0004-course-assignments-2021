@@ -1,3 +1,4 @@
+from apis.forecast_api import ForecastApi
 from apis.weather_api import WeatherApi
 from current_weather_report import CurrentWeatherReport
 from weather_forcast_report import WeatherForecastReport
@@ -25,4 +26,4 @@ def show_full_weather_report(city_name):
 if __name__ == '__main__':
     city = ask_city_name()
 
-    print(show_full_weather_report(city))
+    print(ForecastApi(city).json_to_pandas_dataframe())

@@ -1,32 +1,20 @@
-import datetime
 import json
-from datetime import datetime
+from dataclasses import dataclass, field
+
 from apis.forecast_api import ForecastApi
 from domain.weather import Weather
 from domain.weather_forecast import WeatherForecast
-from helpers.date_converter import convert_unix_dateformat_to_utc
 
 
+@dataclass
 class WeatherForecastReport:
+    forecastReport: [] = field(default_factory=list)
 
-    @staticmethod
-    def three_days_forecast(city):
-        forecast_data = ForecastApi(city).get_forecast_data_from_api()
-        forecast_report = [WeatherForecast(weather=Weather()) for i in range(3)]
-        for forecast in forecast_data['list']:
-            date = datetime.strptime(convert_unix_dateformat_to_utc(forecast['dt']), '%Y-%m-%d')
-            for i in range(3):
-                if date.day == datetime.now().day + i:
-                    forecast_report[i].date = date.strftime('%Y-%m-%d')
-                    if forecast_report[i].weather.pressure == 0:
-                        forecast_report[i].weather.pressure = forecast['main']['pressure']
-                        forecast_report[i].weather.temperature = forecast['main']['temp']
-                        forecast_report[i].weather.humidity = forecast['main']['humidity']
-                    else:
-                        forecast_report[i].weather.pressure = int(
-                            (forecast['main']['pressure'] + forecast_report[i].weather.pressure) / 2)
-                        forecast_report[i].weather.temperature = int(
-                            (forecast['main']['temp'] + forecast_report[i].weather.temperature) / 2)
-                        forecast_report[i].weather.humidity = int(
-                            (forecast['main']['humidity'] + forecast_report[i].weather.humidity) / 2)
-        return json.dumps({"forecastReport": forecast_report}, default=lambda o: o.__dict__, sort_keys=True)
+    def three_days_forecast(self, location):
+        weather_forecast_pandas_dataframe = ForecastApi(location).json_to_pandas_dataframe()
+        for index, row in weather_forecast_pandas_dataframe.head(3).iterrows():
+            self.forecastReport.append(WeatherForecast(date=index, weather=Weather(pressure=row['pressure'],
+                                                                                   temperature=row['temp'],
+                                                                                   humidity=row['humidity'])))
+
+        return json.dumps(self.__dict__, default=lambda o: o.__dict__, sort_keys=True)
