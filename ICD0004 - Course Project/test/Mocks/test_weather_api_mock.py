@@ -1,6 +1,5 @@
 import unittest
 from unittest import mock
-
 from apis.weather_api import WeatherApi
 
 
