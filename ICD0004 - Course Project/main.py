@@ -18,7 +18,7 @@ def show_full_weather_report(city_name):
     current_weather_report = CurrentWeatherReport()
     current_weather_report.parse_json_result_to_current_weather_report(weather_api_result)
     current_weather_report = current_weather_report.convert_weather_report_to_string()
-    weather_forecast = WeatherForecastReport.three_days_forecast(city_name)
+    weather_forecast = WeatherForecastReport().three_days_forecast(location=city_name)
     return json.dumps(json.loads(weather_report_main_details_string) | json.loads(current_weather_report) | json.loads(
         weather_forecast), indent=2)
 
@@ -26,4 +26,4 @@ def show_full_weather_report(city_name):
 if __name__ == '__main__':
     city = ask_city_name()
 
-    print(ForecastApi(city).json_to_pandas_dataframe())
+    print(show_full_weather_report(city))
