@@ -3,8 +3,6 @@ import os
 import unittest
 from os.path import abspath
 from unittest import mock
-
-from apis.forecast_api import ForecastApi
 from weather_forcast_report import WeatherForecastReport
 
 
