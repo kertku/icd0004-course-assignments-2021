@@ -16,9 +16,5 @@ class TestCurrentWeatherReport(unittest.TestCase):
         self.assertEqual(current_weather_report_to_dictionary['cod'], str(404))
 
 
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
