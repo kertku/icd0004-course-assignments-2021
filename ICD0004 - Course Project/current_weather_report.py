@@ -5,7 +5,6 @@ from helpers import date_converter
 
 class CurrentWeatherReport:
     def __init__(self, json_input, date="", current_weather=CurrentWeather()):
-        self.date = date
         self.current_weather = current_weather
         self.json_input = json_input
 
@@ -21,5 +20,6 @@ class CurrentWeatherReport:
 
     def convert_weather_report_to_string(self):
         self.parse_json_result_to_current_weather_report()
-        return json.dumps({"currentWeatherReport": {"date": self.date, "weather": self.current_weather}},
-                          default=lambda o: o.__dict__)
+        return json.dumps(
+            {"currentWeatherReport": {"date": self.current_weather.date, "weather": self.current_weather.weather}},
+            default=lambda o: o.__dict__)
