@@ -24,12 +24,9 @@ class FullWeatherReport:
             weather_forecast))
 
     def read_city_name_from_file(self, path):
-        try:
-            cities_json = read_json_from_file(path)
-            self.city_name = cities_json['cities'][0]['name']
-            return self.city_name
-        except FileNotFoundError:
-            file_path = os.path.join(abspath(os.path.dirname(__file__)), path)
-            print(f"File {file_path} not found!")
-            exit()
+        cities_json = read_json_from_file(path)
+        self.city_name = cities_json['cities'][0]['name']
+        return self.city_name
+
+
 
