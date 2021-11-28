@@ -21,6 +21,5 @@ class CurrentWeatherReport:
 
     def convert_weather_report_to_string(self):
         self.parse_json_result_to_current_weather_report()
-        return json.dumps({"currentWeatherReport": {"date": self.date,
-                                                    "weather": self.current_weather}},
+        return json.dumps({"currentWeatherReport": {"date": self.date, "weather": self.current_weather}},
                           default=lambda o: o.__dict__)
