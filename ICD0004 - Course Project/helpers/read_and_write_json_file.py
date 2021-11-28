@@ -10,12 +10,10 @@ def read_json_from_file(path):
             if path.endswith('.json'):
                 return json.load(f)
             else:
-                print("Wrong file type! Only JSON format is supported!")
-                exit(1)
+                exit("Wrong file type! Only JSON format is supported!")
     except FileNotFoundError:
         file_path = os.path.join(abspath(os.path.dirname(__file__)), path)
-        print(f"File {file_path} not found!")
-        exit()
+        exit(f"File {file_path} not found!")
 
 
 def write_to_json_file(file_name, data):
