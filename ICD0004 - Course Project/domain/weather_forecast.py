@@ -1,7 +1,4 @@
-from dataclasses import dataclass, field
-from datetime import datetime
-
-from domain import weather
+from dataclasses import dataclass
 from domain.weather import Weather
 
 

@@ -11,7 +11,7 @@ class CurrentWeatherReport:
 
     def parse_json_result_to_current_weather_report(self):
         try:
-            self.date = date_converter.convert_unix_dateformat_to_utc(self.json_input["dt"])
+            self.current_weather.date = date_converter.convert_unix_dateformat_to_utc(self.json_input["dt"])
             self.current_weather.weather.temperature = self.json_input['main']["temp"]
             self.current_weather.weather.humidity = self.json_input['main']['humidity']
             self.current_weather.weather.pressure = self.json_input['main']['pressure']
