@@ -7,5 +7,5 @@ def ask_city_name():
 
 if __name__ == '__main__':
     city = ask_city_name()
-
     print(FullWeatherReport(city).show_full_weather_report())
+    FullWeatherReport().read_city_name_from_file('cities.json')
