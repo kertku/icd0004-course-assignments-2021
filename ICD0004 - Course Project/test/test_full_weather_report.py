@@ -1,12 +1,17 @@
-import os
 import unittest
-from os.path import abspath
+from datetime import date, timedelta
 
 from full_weather_report import FullWeatherReport
 from helpers.read_and_write_json_file import write_to_json_file, read_json_from_file
 
 
 class FullWeatherReportTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.full_weather_report = FullWeatherReport()
+        self.full_weather_report.read_city_name_from_file('test/test_data/cities.json')
+        write_to_json_file("pytest_test_file", self.full_weather_report.show_full_weather_report())
+        self.json_data_from_created_file = read_json_from_file("/output_files/pytest_test_file.json")
 
     def test_read_city_from_json_file_return_correct_city(self):
         self.assertEqual("Keila", FullWeatherReport().read_city_name_from_file('test/test_data/cities.json'))
@@ -20,11 +25,16 @@ class FullWeatherReportTestCase(unittest.TestCase):
             FullWeatherReport().read_city_name_from_file('test/test_data/seda_faili_ei_ole.json')
 
     def test_data_read_from_file_returns_correct_weather_report_output_file_data(self):
-        full_weather_report = FullWeatherReport()
-        full_weather_report.read_city_name_from_file('test/test_data/cities.json')
-        write_to_json_file("pytest_test_file", full_weather_report.show_full_weather_report())
-        json_data_from_created_file = read_json_from_file("/output_files/pytest_test_file.json")
-        self.assertEqual("Keila", json_data_from_created_file["weatherReportDetails"]["city"])
+        self.assertEqual("Keila", self.json_data_from_created_file["weatherReportDetails"]["city"])
+
+    def test_data_read_from_file_returns_correct_weather_forecast_dates_to_output_file_data(self):
+        [self.assertEqual((date.today() + timedelta(days=i)).strftime("%Y-%m-%d"),
+                          self.json_data_from_created_file["forecastReport"][i]["date"]) for i in range(3)]
+
+    def test_current_weather_report_from_full_report_file_returns_correct_date(self):
+        current_weather_report_date = self.json_data_from_created_file["currentWeatherReport"]["date"]
+        date_time_today = date.today().strftime("%Y-%m-%d")
+        self.assertEqual(date_time_today, current_weather_report_date)
 
 
 if __name__ == '__main__':
