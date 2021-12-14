@@ -7,8 +7,8 @@
     "currentWeatherReport": {
         "date": "2021-12-14",
         "weather": {
-            "temperature": 2.09,
-            "humidity": 96,
+            "temperature": 1.82,
+            "humidity": 100,
             "pressure": 1014
         }
     },

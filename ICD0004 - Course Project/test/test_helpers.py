@@ -1,6 +1,6 @@
 import unittest
-
 from helpers import date_converter
+from helpers.read_and_write_json_file import write_to_json_file, absolute_file_path, if_file_exists_then_delete_file
 
 
 class HelpersTestCase(unittest.TestCase):
@@ -8,6 +8,19 @@ class HelpersTestCase(unittest.TestCase):
         self.unix_timestamp = date_converter.convert_unix_dateformat_to_utc(1284101485)
         self.correct_format = "2010-09-10"
         self.assertEqual(self.unix_timestamp, self.correct_format)
+
+    def test_correct_log_message_when_new_file_created(self):
+        data = {"testdata": "testdata"}
+        log_message = write_to_json_file("test_output", data, output_dir="test/test_data/test_output_files")
+        self.assertEqual("File test_output.json in output_files folder already exists! File overridden!", log_message)
+
+    def test_correct_log_message_when_file_is_overridden(self):
+        file_path = absolute_file_path('/test/test_data/test_output_files/test_output_override.json')
+        if_file_exists_then_delete_file(file_path)
+        data = {"testdata": "testdata"}
+        log_message = write_to_json_file("test_output_override", data,
+                                         output_dir="test/test_data/test_output_files")
+        self.assertEqual("New file: test_output_override.json created to output_files folder!", log_message)
 
 
 if __name__ == '__main__':

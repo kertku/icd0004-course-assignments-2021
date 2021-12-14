@@ -1,4 +1,5 @@
 from full_weather_report import FullWeatherReport
+from helpers.date_converter import convert_unix_dateformat_to_utc
 from helpers.read_and_write_json_file import write_to_json_file
 
 
@@ -23,3 +24,4 @@ def return_json_weather_reports():
 
 if __name__ == '__main__':
     return_json_weather_reports()
+    print(convert_unix_dateformat_to_utc(1639523290))

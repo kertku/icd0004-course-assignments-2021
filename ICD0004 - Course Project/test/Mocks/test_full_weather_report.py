@@ -17,7 +17,7 @@ class FullWeatherReportWithMockTestCase(BaseTestWithFileSetupTestCase):
         self.assertEqual("Keila", json_data_from_created_file["weatherReportDetails"]["city"])
 
     def tearDown(self):
-        super(FullWeatherReportWithMockTestCase, self).tearDown()
+        self.patcher.stop()
 
 
 if __name__ == '__main__':
