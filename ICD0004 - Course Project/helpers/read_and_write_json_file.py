@@ -18,9 +18,12 @@ def read_json_from_file(path):
 
 def write_to_json_file(file_name, data):
     file_path = os.path.join(abspath(os.path.dirname(__file__)), f'../output_files/{file_name}.json')
+    message = f"File {file_name}.json in output_files folder already exists! file overridden" if os.path.exists(
+        file_path) else f"New file: {file_name}.json created to output_files folder!"
     with open(file_path, 'w') as outfile:
         json.dump(data, outfile, indent=4)
-        print(f"File {file_name}.json created to output_files folder!")
+
+    return message
 
 
 def if_file_exists_then_delete_file(file_path):

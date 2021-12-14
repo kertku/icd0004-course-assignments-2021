@@ -28,5 +28,7 @@ class FullWeatherReport:
         self.city_name = cities_json['cities'][0]['name']
         return self.city_name
 
-
-
+    @staticmethod
+    def read_city_names_from_file(path):
+        cities_json = read_json_from_file(path)
+        return [city["name"] for city in cities_json['cities']]

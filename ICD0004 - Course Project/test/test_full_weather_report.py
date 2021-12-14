@@ -27,6 +27,7 @@ class FullWeatherReportTestCase(unittest.TestCase):
     def test_data_read_from_file_returns_correct_weather_report_output_file_data(self):
         self.assertEqual("Keila", self.json_data_from_created_file["weatherReportDetails"]["city"])
 
+    # Todo Test fails if itś run on evening, where there are no more today's date! FIX IT
     def test_data_read_from_file_returns_correct_weather_forecast_dates_to_output_file_data(self):
         [self.assertEqual((date.today() + timedelta(days=i)).strftime("%Y-%m-%d"),
                           self.json_data_from_created_file["forecastReport"][i]["date"]) for i in range(3)]
@@ -35,6 +36,10 @@ class FullWeatherReportTestCase(unittest.TestCase):
         current_weather_report_date = self.json_data_from_created_file["currentWeatherReport"]["date"]
         date_time_today = date.today().strftime("%Y-%m-%d")
         self.assertEqual(date_time_today, current_weather_report_date)
+
+    def test_file_read_with_multiple_cities_returns_correct_list_with_city_names(self):
+        self.assertEqual(["Keila", "Tapa", "Tallinn"],
+                         FullWeatherReport().read_city_names_from_file("test/test_data/multiple_cities.json"))
 
 
 if __name__ == '__main__':
