@@ -1,0 +1,41 @@
+{
+    "weatherReportDetails": {
+        "city": "Keila",
+        "coordinates": "59.3036,24.4131",
+        "temperature_units": "Celsius"
+    },
+    "currentWeatherReport": {
+        "date": "2021-12-14",
+        "weather": {
+            "temperature": 2.52,
+            "humidity": 100,
+            "pressure": 1013
+        }
+    },
+    "forecastReport": [
+        {
+            "date": "2021-12-14",
+            "weather": {
+                "humidity": 100,
+                "pressure": 1013,
+                "temperature": 3
+            }
+        },
+        {
+            "date": "2021-12-15",
+            "weather": {
+                "humidity": 97,
+                "pressure": 1012,
+                "temperature": 3
+            }
+        },
+        {
+            "date": "2021-12-16",
+            "weather": {
+                "humidity": 90,
+                "pressure": 1011,
+                "temperature": 3
+            }
+        }
+    ]
+}
