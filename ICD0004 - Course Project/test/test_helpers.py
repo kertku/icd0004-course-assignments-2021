@@ -1,5 +1,4 @@
 import unittest
-
 from full_weather_report import FullWeatherReport
 from helpers import date_converter
 from helpers.read_and_write_json_file import write_to_json_file

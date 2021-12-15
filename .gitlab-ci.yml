@@ -1,14 +1,16 @@
-stages:
-    - test
+image: "python:3.9"
 
-
-test:
-  stage: test
-  image: python:3.9
-  script:
+before_script:
     - cd ICD0004\ -\ Course\ Project/
     - pip3 install pipenv
     - pipenv install
+    
+stages:
+    - test
+
+test:
+  stage: test  
+  script:    
     - pipenv run python3 -m unittest discover --verbose
     
     
