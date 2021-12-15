@@ -7,33 +7,33 @@
     "currentWeatherReport": {
         "date": "2021-12-15",
         "weather": {
-            "temperature": 3.57,
-            "humidity": 100,
-            "pressure": 1012
+            "temperature": 5.06,
+            "humidity": 93,
+            "pressure": 1009
         }
     },
     "forecastReport": [
         {
-            "date": "2021-11-21",
+            "date": "2021-12-15",
             "weather": {
-                "humidity": 66,
-                "pressure": 1006,
-                "temperature": 0
+                "humidity": 93,
+                "pressure": 1009,
+                "temperature": 5
             }
         },
         {
-            "date": "2021-11-22",
+            "date": "2021-12-16",
             "weather": {
-                "humidity": 70,
-                "pressure": 1013,
-                "temperature": 0
-            }
-        },
-        {
-            "date": "2021-11-23",
-            "weather": {
-                "humidity": 89,
+                "humidity": 88,
                 "pressure": 1010,
+                "temperature": 3
+            }
+        },
+        {
+            "date": "2021-12-17",
+            "weather": {
+                "humidity": 87,
+                "pressure": 1021,
                 "temperature": 1
             }
         }

@@ -1,6 +1,5 @@
 import unittest
 from datetime import date, timedelta
-
 from full_weather_report import FullWeatherReport
 from helpers.read_and_write_json_file import write_to_json_file, read_json_from_file
 

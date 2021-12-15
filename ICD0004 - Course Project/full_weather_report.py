@@ -13,8 +13,7 @@ class FullWeatherReport:
 
     def show_full_weather_report(self):
         weather_api_result = WeatherApi(self.city_name).get_current_weather_data_from_api()
-        if weather_api_result["cod"] == '404':
-            return 404
+        if weather_api_result["cod"] == '404': return 404
         weather_report_main_details = WeatherReportDetails(
             weather_api_result).convert_weather_report_details_to_string()
         current_weather_report = CurrentWeatherReport(weather_api_result).convert_weather_report_to_string()
