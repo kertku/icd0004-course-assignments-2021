@@ -5,11 +5,11 @@
         "temperature_units": "Celsius"
     },
     "currentWeatherReport": {
-        "date": "2021-12-14",
+        "date": "2021-12-15",
         "weather": {
-            "temperature": 1.82,
+            "temperature": 3.57,
             "humidity": 100,
-            "pressure": 1014
+            "pressure": 1012
         }
     },
     "forecastReport": [

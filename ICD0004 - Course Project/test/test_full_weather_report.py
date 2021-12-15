@@ -41,6 +41,13 @@ class FullWeatherReportTestCase(unittest.TestCase):
         self.assertEqual(["Keila", "Tapa", "Tallinn"],
                          FullWeatherReport().read_city_names_from_file("test/test_data/multiple_cities.json"))
 
+    def test_unknown_city_name_to_show_full_weather_report_returns_404(self):
+        unknown_city_name = FullWeatherReport()
+        unknown_city_name.read_city_name_from_file('test/test_data/uncorrect_city_name.json')
+        self.assertEqual(404, unknown_city_name.show_full_weather_report())
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

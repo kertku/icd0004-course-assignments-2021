@@ -1,7 +1,4 @@
 import json
-import os
-from os.path import abspath
-
 from apis.weather_api import WeatherApi
 from current_weather_report import CurrentWeatherReport
 from helpers.read_and_write_json_file import read_json_from_file
@@ -16,6 +13,8 @@ class FullWeatherReport:
 
     def show_full_weather_report(self):
         weather_api_result = WeatherApi(self.city_name).get_current_weather_data_from_api()
+        if weather_api_result["cod"] == '404':
+            return 404
         weather_report_main_details = WeatherReportDetails(
             weather_api_result).convert_weather_report_details_to_string()
         current_weather_report = CurrentWeatherReport(weather_api_result).convert_weather_report_to_string()
